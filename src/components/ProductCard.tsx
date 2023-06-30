@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -17,24 +18,21 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <>
       <Card>
         <Link href={`/products/${id}`}>
-          <Image
-            className="card-img-top"
-            src={imageUrl}
-            alt="Product"
-            height={500}
-            width={600}
-          />
+          <img className="card-img-top" src={imageUrl} alt={name} />
         </Link>
 
         <CardBody>
-          <Link href={`/products/${id}`}>
+          <Link href={`/products/${id}`} style={{color: "black", textDecoration: 'none'}}>
             <h5 className="card-title" style={{ cursor: "pointer" }}>
               {name}
             </h5>
           </Link>
 
           <CardSubtitle className="mb-3 text-muted" tag="h6">
-            R$ {price}
+            {price.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
           </CardSubtitle>
 
           <Button
@@ -50,6 +48,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </Button>
         </CardBody>
       </Card>
+
       <SuccessToast toastIsOpen={toastIsOpen} setToastIsOpen={setToastIsOpen} />
     </>
   );
