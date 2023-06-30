@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { ReactNode, useEffect, useState } from "react";
 import { Col, Container, Row } from "reactstrap";
 
@@ -7,21 +7,20 @@ type ApiResponse = {
   timestamp: Date;
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const serverSideData: ApiResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_APIURL}/api/hello`
-  ).then((res) => res.json());
+export const getStaticProps: GetStaticProps = async () => {
+    const staticData = await fetch(`${process.env.NEXT_PUBLIC_APIURL}/api/hello`).then(res => res.json())
+  
+    return {
+      props: {
+        staticData
+      },
+      revalidate: 10
+    }
+  }
 
-  return {
-    props: {
-      serverSideData,
-    },
-  };
-};
-
-const Dynamic: NextPage = (props: {
+const Static: NextPage = (props: {
   children?: ReactNode;
-  serverSideData?: ApiResponse;
+  staticData?: ApiResponse;
 }) => {
   const [clientSideData, setClientSideData] = useState<ApiResponse>();
 
@@ -30,7 +29,7 @@ const Dynamic: NextPage = (props: {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch("/api/hello").then((res) => res.json());
+    const data = await fetch(`/api/hello`).then((res) => res.json());
     setClientSideData(data);
   };
 
@@ -42,8 +41,8 @@ const Dynamic: NextPage = (props: {
         <Col>
           <h3>
             Gerado no servidor:{" "}
-            {props.serverSideData?.timestamp
-              ? props.serverSideData.timestamp.toString()
+            {props.staticData?.timestamp
+              ? props.staticData?.timestamp.toString()
               : ""}
           </h3>
         </Col>
@@ -61,4 +60,4 @@ const Dynamic: NextPage = (props: {
   );
 };
 
-export default Dynamic;
+export default Static;
