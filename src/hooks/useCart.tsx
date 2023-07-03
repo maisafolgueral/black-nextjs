@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   ReactNode,
   useContext,
@@ -15,7 +15,7 @@ type CartContextType = {
 
 const CartContext = createContext<CartContextType>({} as CartContextType);
 
-export const CartContextProvider = (props: { children: ReactNode }) => {
+export const CartContextProvider = (props: { children?: ReactNode }) => {
   const [cart, setCart] = useState<ProductType[]>([]);
 
   useEffect(() => {

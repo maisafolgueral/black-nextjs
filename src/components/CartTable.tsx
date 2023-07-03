@@ -1,4 +1,4 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
 import { Button, Col, Row, Table } from "reactstrap";
 import { useCart } from "../hooks/useCart";
@@ -17,11 +17,11 @@ const CartTableRow = (props: { entry: CartEntry }) => {
       <td>
         <Row className="align-items-center">
           <Col xs={4} md={2} lg={1}>
-            <Image
+            <img
               src={props.entry.product.imageUrl}
               alt={props.entry.product.name}
-              height={500}
-              width={600}
+              className="img-fluid"
+              style={{ width: "max-content" }}
             />
           </Col>
           <Col xs={8} md={10} lg={11}>
@@ -29,9 +29,19 @@ const CartTableRow = (props: { entry: CartEntry }) => {
           </Col>
         </Row>
       </td>
-      <td>R$ {props.entry.product.price}</td>
+      <td>
+        {props.entry.product.price.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        })}
+      </td>
       <td>{props.entry.quantity}</td>
-      <td>R$ {props.entry.product.price * props.entry.quantity}</td>
+      <td>
+        {(props.entry.product.price * props.entry.quantity).toLocaleString(
+          "pt-BR",
+          { style: "currency", currency: "BRL" }
+        )}
+      </td>
       <td>
         <Button
           color="primary"
@@ -45,7 +55,7 @@ const CartTableRow = (props: { entry: CartEntry }) => {
           size="sm"
           onClick={() => removeProduct(props.entry.product.id)}
         >
-          –
+          -
         </Button>
       </td>
     </tr>
