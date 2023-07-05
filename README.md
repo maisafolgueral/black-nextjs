@@ -1,34 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-commerce NextJS
+![NextJS](https://img.shields.io/badge/-NextJS-orange) ![NextJS](https://img.shields.io/badge/-Typescript-blue)
 
-## Getting Started
+Projeto prático do Módulo de Next.js: o Essencial (+ versão 13) desenvolvido no curso Programador Full Stack JavaScript da [OneBitCode](https://pages.onebitcode.com/).
 
-First, run the development server:
+Feito com o objetivo de aprender mais sobre o uso de NextJs e suas funcionalidades, como:
 
-```bash
-npm run dev
-# or
-yarn dev
+- Gerenciamento de API dentro do NextJS
+- SSR (Server side Rendering)
+- SSG (Static Site Generation)
+- ISR (Incremental Static Regeneration)
+
+Além disso, também foi utilizado Typescript.
+
+# Resultado
 ```
+npm run dev
+```
+Página inicial:
+<img width="940" alt="image" src="https://github.com/maisafolgueral/black-nextjs/assets/78705530/0acbf370-b8ee-4824-90eb-a5d792037f5a">
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Página de produtos:
+<img width="940" alt="image" src="https://github.com/maisafolgueral/black-nextjs/assets/78705530/1b45c75f-0620-49dc-bc13-990cd125f907">
+<img width="940" alt="image" src="https://github.com/maisafolgueral/black-nextjs/assets/78705530/01d6030b-8147-4ddf-8571-54f085b9132c">
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Página do carrinho:
+<img width="940" alt="image" src="https://github.com/maisafolgueral/black-nextjs/assets/78705530/37875270-42f6-48e0-80ad-1821c1b4699b">
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[![Link](https://img.shields.io/badge/Link_to_the_website-000?style=for-the-badge&logo=&logoColor=white)](https://black-nextjs-green.vercel.app/)
